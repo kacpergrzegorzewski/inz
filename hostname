@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sed -i 's/OpenWrt/$1/' /etc/config/system
