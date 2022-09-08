@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cat << EOF > /etc/rc.local
+ovs-ctl start
+exit 0
+EOF
+
+
