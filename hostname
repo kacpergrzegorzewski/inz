@@ -1,3 +1,6 @@
 #!/bin/sh
 
-sed -i 's/OpenWrt/$1/' /etc/config/system
+
+sed -i "s|hostname.*$|hostname '$1'|" /etc/config/system
+
+echo "hostname changed to $1."
