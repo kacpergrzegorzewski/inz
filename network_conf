@@ -16,7 +16,7 @@ config interface 'wan_controller'
 
 config device 'wan_dev'
         option name 'eth0.5'
-        option macaddr \'$wan_address\'
+        option macaddr '$wan_address'
 
 config interface 'lan1'
         option ifname 'eth0.1'
@@ -91,7 +91,7 @@ config wifi-device 'radio1'
 config wifi-iface 'default_radio1'
         option device 'radio1'
         option mode 'ap'
-        option ssid '$HOSTNAME_5G'
+        option ssid '$HOSTNAME 5G'
         option encryption 'none'
         option ifname wlan1
 

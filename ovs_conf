@@ -5,4 +5,13 @@ ovs-ctl start
 exit 0
 EOF
 
+ovs-ctl start
 
+ovs-vsctl add-br br0
+
+ovs-vsctl add-port br0 eth0.1 -- set Interface eth0.0 ofport_request=1
+ovs-vsctl add-port br0 eth0.2 -- set Interface eth0.1 ofport_request=2
+ovs-vsctl add-port br0 eth0.3 -- set Interface eth0.2 ofport_request=3
+ovs-vsctl add-port br0 eth0.4 -- set Interface eth0.3 ofport_request=4
+ovs-vsctl add-port br0 wlan0 -- set Interface wlan0 ofport_request=5
+ovs-vsctl add-port br0 wlan1 -- set Interface wlan1 ofport_request=6
