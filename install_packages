@@ -1,0 +1,6 @@
+#!/bin/sh
+
+opkg update
+opkg install nano
+opkg install openvswitch
+opkg install tcpdump
