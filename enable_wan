@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 cat << EOF >> /etc/config/firewall
+
 config rule
         option src              wan
         option target           ACCEPT
