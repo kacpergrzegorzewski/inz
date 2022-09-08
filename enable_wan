@@ -1,0 +1,4 @@
+
+config rule
+        option src              wan
+        option target           ACCEPT
