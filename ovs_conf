@@ -3,6 +3,7 @@
 controller=$1
 
 cat << EOF > /etc/rc.local
+#!/bin/sh -e
 ovs-ctl start
 exit 0
 EOF
