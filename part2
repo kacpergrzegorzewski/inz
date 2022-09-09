@@ -1,0 +1,5 @@
+#!/bin/sh
+
+controller=$1
+
+./ovs_conf $controller
