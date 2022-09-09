@@ -33,7 +33,7 @@ chmod +x part2
 ./network_conf
 
 cat << EOF > /etc/rc.local
-/root/config/part2 $controller
+/root/config/part2 $controller 
 EOF
 
 reboot now
