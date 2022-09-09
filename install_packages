@@ -4,3 +4,5 @@ opkg update
 opkg install nano
 opkg install openvswitch
 opkg install tcpdump
+opkg install ca-bundle
+opkg install libustream-openssl
