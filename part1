@@ -1,0 +1,40 @@
+#!/bin/sh
+
+hostname=$1
+controller=$2
+
+opkg update
+opkg install nano
+opkg install openvswitch
+opkg install tcpdump
+opkg install ca-bundle
+opkg install libustream-openssl
+
+mkdir config
+cd config
+
+wget --no-check-certificate https://raw.githubusercontent.com/kacpergrzegorzewski/inz/master/hostname
+chmod +x hostname
+
+wget --no-check-certificate https://raw.githubusercontent.com/kacpergrzegorzewski/inz/master/enable_wan
+chmod +x enable_wan
+
+wget --no-check-certificate https://raw.githubusercontent.com/kacpergrzegorzewski/inz/master/network_conf
+chmod +x network_conf
+
+wget --no-check-certificate https://raw.githubusercontent.com/kacpergrzegorzewski/inz/master/ovs_conf
+chmod +x ovs_conf
+
+wget --no-check-certificate https://raw.githubusercontent.com/kacpergrzegorzewski/inz/master/part2
+chmod +x part2
+
+./hostname $hostname
+./enable_wan
+./network_conf
+
+cat << EOF > /etc/rc.local
+/root/config/part2 $controller
+EOF
+
+reboot now
+
