@@ -6,7 +6,9 @@ if [ $# -eq 0 ]; then
 fi
 
 hostname=$1
-controller=$2
+ip=$2
+mask=$3
+controller=$4
 
 opkg update
 opkg install nano
@@ -35,7 +37,7 @@ chmod +x part2
 
 ./hostname $hostname
 ./enable_wan
-./network_conf
+./network_conf $ip $mask
 
 cat << EOF > /etc/rc.local
 #!/bin/sh -e

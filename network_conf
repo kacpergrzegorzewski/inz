@@ -1,4 +1,6 @@
 #!/bin/sh
+ip=$1
+mask=$2
 lan_address="`cat /sys/class/net/eth0.1/address`"
 wan_address="`cat /sys/class/net/eth0.2/address`"
 
@@ -12,7 +14,9 @@ config interface 'loopback'
 
 config interface 'wan_controller'
         option ifname 'eth0.5'
-        option proto 'dhcp'
+        option proto 'static'
+        option ipaddr '$ip'
+        option netmask '$mask'
 
 config device 'wan_dev'
         option name 'eth0.5'
